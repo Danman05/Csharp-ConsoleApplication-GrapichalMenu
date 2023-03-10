@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using Pastel;
 using System.Drawing;
 
-namespace GrapichalMenu
+namespace GrapichalMenu.program
 {
     internal class Program
     {
@@ -13,8 +13,8 @@ namespace GrapichalMenu
         {
             View view = new View();
             Controller controller = new Controller();
-            
-            System.Text.Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             int selectedIndexOption = -1;
             bool terminate = false;
             string message = "";
@@ -39,9 +39,12 @@ namespace GrapichalMenu
                         Console.WriteLine();
                         Console.Write("Enter file name: ");
                         string? fileName = Console.ReadLine();
-                        if (fileName != "") {
+                        if (fileName != "")
+                        {
                             controller.CreateTextFile(fileName);
-                        } else {
+                        }
+                        else
+                        {
                             message = "File not created, give the file a name".Pastel(Color.FromArgb(99, 0, 15));
                         }
                         break;

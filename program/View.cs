@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrapichalMenu
+namespace GrapichalMenu.program
 {
     internal class View
     {
@@ -44,17 +44,17 @@ namespace GrapichalMenu
                     Console.Write($"{i + 1}. {listOptions[i]}");
                 }
                 //Console.ResetColor();
-                Console.Write(new String(' ', 46 - listOptions[i].Count()));
+                Console.Write(new string(' ', 46 - listOptions[i].Count()));
                 Console.WriteLine($"{cp437.GetString(new byte[1] { 186 })}");
             }
 
             Console.Write($"{cp437.GetString(new byte[1] { 186 })}");
-            Console.Write(new String(' ', 49));
+            Console.Write(new string(' ', 49));
             Console.WriteLine($"{cp437.GetString(new byte[1] { 186 })}");
 
             Console.Write($"{cp437.GetString(new byte[1] { 186 })}");
             Console.Write($"Choose between 1-7, press q to exit");
-            Console.Write(new String(' ', 14));
+            Console.Write(new string(' ', 14));
             Console.WriteLine($"{cp437.GetString(new byte[1] { 186 })}");
 
             Console.Write($"{cp437.GetString(new byte[1] { 212 })}");
