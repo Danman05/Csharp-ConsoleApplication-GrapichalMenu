@@ -8,4 +8,5 @@ Version 7.0.0
 
 Pastel by Gabriel Bider
 Version 4.1.0
+
 https://www.nuget.org/packages/Pastel/4.1.0#show-readme-container
