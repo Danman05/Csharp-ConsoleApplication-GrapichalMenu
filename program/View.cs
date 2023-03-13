@@ -17,8 +17,8 @@ namespace GrapichalMenu.program
                 "See Character List",
                 "Create Text File",
                 "Open Workspace Directory",
-                "Something different",
-                "Something strange",
+                "Order by descending number",
+                "Perfect Square",
                 "Something weird",
                 "Something wrong"
             };

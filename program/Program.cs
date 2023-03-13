@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Pastel;
 using System.Drawing;
+using System.Collections.Immutable;
 
 namespace GrapichalMenu.program
 {
@@ -52,19 +53,39 @@ namespace GrapichalMenu.program
                         selectedIndexOption = 2;
                         view.PrintMenu(selectedIndexOption, message);
                         Process.Start("explorer.exe", @"H:\SKP\Programmering\Små opgaver\GrapichalMenu\bin\Debug\net6.0");
-
                         break;
                     case ConsoleKey.D4:
                         selectedIndexOption = 3;
+                        view.PrintMenu(selectedIndexOption, message);
+                        Console.Write("\nEnter number: ");
+                        int numbers = Int32.Parse(Console.ReadLine());
+                        Console.WriteLine($"\nOrder by descending number returned: {OrderDescenNum(numbers)}");
+                        Console.ReadKey();
                         break;
                     case ConsoleKey.D5:
                         selectedIndexOption = 4;
+                        view.PrintMenu(selectedIndexOption, message);
+                        Console.Write("\nEnter number: ");
+                        int squareNum = Int32.Parse(Console.ReadLine());
+                        bool squareResult = PerfectSquare(squareNum);
+                        if (squareResult)
+                        {
+                            Console.WriteLine($"\nPerfect square returned: {squareResult.ToString().Pastel(Color.FromArgb(0, 230, 0))}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nPerfect square returned: {squareResult.ToString().Pastel(Color.FromArgb(230, 0, 0))}");
+                        }
+
+                        Console.ReadKey();
                         break;
                     case ConsoleKey.D6:
                         selectedIndexOption = 5;
+                        view.PrintMenu(selectedIndexOption, message);
                         break;
                     case ConsoleKey.D7:
                         selectedIndexOption = 6;
+                        view.PrintMenu(selectedIndexOption, message);
                         break;
                     case ConsoleKey.Q:
                         Console.Clear();
@@ -76,6 +97,32 @@ namespace GrapichalMenu.program
                         break;
                 }
             }
+        }
+
+        private static int OrderDescenNum(int num)
+        {
+            string result = "";
+            string numStr = num.ToString();
+            int[] numArr = new int[numStr.Length];
+
+            for (int i = 0; i < numStr.Length; i++)
+            {
+                numArr[i] = Int32.Parse(numStr[i].ToString());
+            }
+
+            Array.Sort(numArr);
+            Array.Reverse(numArr);
+
+            for (int i = 0; i < numArr.Length; i++)
+            {
+                result += numArr[i].ToString();
+            }
+            return Int32.Parse(result);
+        }
+        private static bool PerfectSquare(int squareNum)
+        {
+            double result = Math.Sqrt(squareNum);
+            return result % 1 == 0;
         }
     }
 }
